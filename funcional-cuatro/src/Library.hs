@@ -72,7 +72,7 @@ parDeFns funcion1 funcion2 elemento = (funcion1 elemento, funcion2 elemento)
 -- Orden Superior + Lista
 -- 1
 esMultiplo :: Number -> Number -> Bool
-esMultiplo multiplo numero = mod numero multiplo == 0
+esMultiplo numero = (== 0) . mod numero
 
 esMultiploDeAlguno :: Number -> [Number] -> Bool
 esMultiploDeAlguno multiplo = any (esMultiplo multiplo)
@@ -106,9 +106,51 @@ aprobaron = filter aprobo
 -- 7
 buscarDivisores :: Number -> [Number] -> Number -> [Number]
 buscarDivisores numeroDivisor listaNumeros numero
-        | numeroDivisor == numero = listaNumeros ++ [numero]
-        | esMultiplo numeroDivisor numero = buscarDivisores (numeroDivisor + 1) (listaNumeros ++ [numeroDivisor]) numero
+        | (== numero) numeroDivisor = listaNumeros ++ [numero]
+        | esMultiplo numero numeroDivisor = buscarDivisores (numeroDivisor + 1) (listaNumeros ++ [numeroDivisor]) numero
         | otherwise = buscarDivisores (numeroDivisor + 1) listaNumeros numero
 
 divisores :: Number -> [Number]
 divisores = buscarDivisores 1 []
+
+-- 8
+exists :: (a -> Bool) -> [a] -> Bool
+exists = any
+
+-- 9
+hayAlgunNegativo :: [Number] -> b -> Bool
+hayAlgunNegativo listaNumeros b = any (<0) listaNumeros
+
+-- 10
+aplicarFunciones :: [Number -> Number] -> Number -> [Number]
+aplicarFunciones funciones numero
+  = foldr (\ funcion -> (:) (funcion numero)) [] funciones
+
+{- 
+aplicarFunciones :: [Number -> Number] -> Number -> [Number]
+aplicarFunciones [] numero = []
+aplicarFunciones (funcion:funciones) numero = funcion numero : aplicarFunciones funciones numero
+
+Esta fue mi funcion la de arriba es una funcion que me recomendo haskell, por que no sé
+-}
+
+-- aplicarFunciones[(*4),even,abs] 8  Da error porque even devuleve un valor del tipo booleano y la funcion aplicar funciones esta definida con un codominio de listas de numeros
+
+-- 11
+sumaF :: [Number -> Number] -> Number -> Number
+sumaF funciones numero
+  = sum (foldr (\ funcion -> (:) (funcion numero)) [] funciones)
+
+-- 12
+subirHabilidad :: Number -> [Number] -> [Number]
+subirHabilidad numero [] = []
+subirHabilidad numero (habilidad:habilidades)
+    | ((>= 12) . (+ numero)) habilidad  = 12 : subirHabilidad numero habilidades
+    | otherwise = (+ numero) habilidad : subirHabilidad numero habilidades
+
+-- 13
+flimitada :: (Number -> Number) -> Number -> Number
+flimitada funcion numero
+    | funcion numero >= 12 = 12
+    | funcion numero <= 0 = 0
+    | otherwise = funcion numero

@@ -67,3 +67,24 @@ correrTests = hspec $ do
 
     it "divisores/1" $ do
       divisores 60 `shouldBe` [1,2,3,4,5,6,10,12,15,20,30,60]
+
+    it "exists/2" $ do
+      exists even [1,3,5] `shouldBe`False
+      exists even [1,4,7] `shouldBe` True
+    
+    it "hayAlgunNegativo/2" $ do
+      hayAlgunNegativo [2,-3,9] 214545 `shouldBe` True 
+
+    it "aplicarFunciones/2" $ do
+      aplicarFunciones [(*4),(+3),abs] (-8) `shouldBe` [-32,-5,8]
+
+    it "sumaF/2" $ do
+      sumaF [(*4),(+3),abs] (-8) `shouldBe` -29 
+    
+    it "subirHabilidades/2" $ do
+      subirHabilidad 2 [3,6,9,10,11,12] `shouldBe` [5,8,11,12,12,12] 
+      
+    it "flimitada/2" $ do
+      flimitada (*2) 9 `shouldBe` 12
+      flimitada (+(-4)) 3 `shouldBe` 0
+      flimitada (*2) 5 `shouldBe` 10

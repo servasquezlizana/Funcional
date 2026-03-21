@@ -1,0 +1,18 @@
+/home/servasquezlizana/.ghcup/ghc/9.6.6/lib/ghc-9.6.6/lib/x86_64-linux-ghc-9.6.6/rts-1.0.2/include/ghcversion.h:
+  hash: 9032f6afc97dcddfe8c8b306639eb6f456e3f6667f3dd8268681f51bb77c8634
+? /home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-uno/.stack-work/dist/x86_64-linux/ghc-9.6.6/build/funcional-uno-test/autogen/Paths_funcional_uno.hs
+: hash: 020cfd04f615d8beaadc0397dfede57bbae0f2733415a6a561d35ffd41683f40
+? /home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-uno/.stack-work/dist/x86_64-linux/ghc-9.6.6/build/funcional-uno-test/autogen/cabal_macros.h
+: hash: e725e8a490a515d299e3e136e135aacefaf136e45a45294e62dd628529d9010c
+/home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-uno/ChangeLog.md:
+  hash: 2e3437f09aedf5d5c76e3d4e280d49736641b5b0fab1a11e1e4dadf90c08652f
+/home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-uno/README.md:
+  hash: bbd7ff917c5bb449933b6360f3631bb85ae3e29fc8ff7bb201717fb43be7ced4
+/home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-uno/funcional-uno.cabal:
+  hash: 23d6e6817ed9a7b3ffadd007a8aa463be6588cd65dd247338f913b9a85e8f4f1
+/home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-uno/package.yaml:
+  hash: 5b2956e81cc02a87763a85e1be138250591bdc202399c63c2384ceade30e4fb2
+/home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-uno/test/CorrerTests.hs:
+  hash: 8b78c377ff460ba7be2b5a2aa91d6cb68be6d983dde772a5cd39730a75e7f4ee
+/usr/include/stdc-predef.h:
+  hash: 82975831ea2d1f95b60225f37ddd6130225f0c3de2318674cb178fea661ad87b

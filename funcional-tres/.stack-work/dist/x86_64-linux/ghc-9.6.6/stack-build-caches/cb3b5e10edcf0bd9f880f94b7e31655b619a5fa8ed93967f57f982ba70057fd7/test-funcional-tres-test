@@ -1,0 +1,18 @@
+/home/servasquezlizana/.ghcup/ghc/9.6.6/lib/ghc-9.6.6/lib/x86_64-linux-ghc-9.6.6/rts-1.0.2/include/ghcversion.h:
+  hash: 9032f6afc97dcddfe8c8b306639eb6f456e3f6667f3dd8268681f51bb77c8634
+? /home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-tres/.stack-work/dist/x86_64-linux/ghc-9.6.6/build/funcional-tres-test/autogen/Paths_funcional_tres.hs
+: hash: 2370ad885b60329048c11cabc42f7ac42056ab1f1a90d2532e00b230cfcb261a
+? /home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-tres/.stack-work/dist/x86_64-linux/ghc-9.6.6/build/funcional-tres-test/autogen/cabal_macros.h
+: hash: c918d2e7c251f1482349ca85201fc8def9960a605d11e7622fb437346ce98da2
+/home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-tres/ChangeLog.md:
+  hash: 7628a67ae9850f2850735cd42aba6e91bdf4e49ad59fd96336cb445c79e6b0da
+/home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-tres/README.md:
+  hash: bbd7ff917c5bb449933b6360f3631bb85ae3e29fc8ff7bb201717fb43be7ced4
+/home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-tres/funcional-tres.cabal:
+  hash: b6cd0bd7f0a5ab2a1252123c83c7092714cc4fa426b71fa22c23e73cd7d53417
+/home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-tres/package.yaml:
+  hash: fce090d8a2433940d8c790b910ebccd468d81acfb42ba581668e5da426700f32
+/home/servasquezlizana/Documentos/Paradigmas/Funcional/funcional-tres/test/CorrerTests.hs:
+  hash: 8b78c377ff460ba7be2b5a2aa91d6cb68be6d983dde772a5cd39730a75e7f4ee
+/usr/include/stdc-predef.h:
+  hash: 82975831ea2d1f95b60225f37ddd6130225f0c3de2318674cb178fea661ad87b
