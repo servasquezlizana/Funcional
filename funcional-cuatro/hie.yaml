@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "funcional-cuatro:lib"
+
+    - path: "./test"
+      component: "funcional-cuatro:test:funcional-cuatro-test"

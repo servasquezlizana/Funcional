@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "funcional-dos:lib"
+
+    - path: "./test"
+      component: "funcional-dos:test:funcional-dos-test"

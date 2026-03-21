@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "funcional-tres:lib"
+
+    - path: "./test"
+      component: "funcional-tres:test:funcional-tres-test"
