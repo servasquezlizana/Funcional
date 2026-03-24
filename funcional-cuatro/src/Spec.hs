@@ -88,3 +88,45 @@ correrTests = hspec $ do
       flimitada (*2) 9 `shouldBe` 12
       flimitada (+(-4)) 3 `shouldBe` 0
       flimitada (*2) 5 `shouldBe` 10
+
+    it "cambiarHabilidad/2" $ do
+      cambiarHabilidad (*2) [2,4,6,8,10] `shouldBe` [4,8,12,12,12]
+      -- 13 b
+      cambiarHabilidad (max 4) [2,4,5,3,8] `shouldBe` [4,4,5,4,8] 
+
+    -- 14 investigar takeWhile - > toma cuando cumple la condicion 
+    -- si no cumple la condicion corta la ejecucuion por eso (> 9) es vacio
+    it "takeWhile/2" $ do
+      takeWhile (< 3) [1..12] `shouldBe` [1,2]
+      takeWhile (< 9) [1..12] `shouldBe` [1..8]
+      takeWhile (9 <) [1..12] `shouldBe` []
+
+    it "primerosPares" $ do
+      primerosPares [4,12,3,8,2,9,6] `shouldBe` [4,12]
+
+    it "primerosDivisores/2" $ do
+      primerosDivisores 60 [4,12,3,8,2,9,6] `shouldBe` [4,12,3]
+
+    it "primerosNoDivisores/2" $ do
+      primerosNoDivisores 60 [8,9,4,12,3,8,2,9,6] `shouldBe` [8,9]
+    
+    it "huboMesMejorDe/3" $ do
+      huboMesMejorDe [1..12] [12,11..1] 10 `shouldBe` True 
+
+    it "crecimientoAnual/1" $ do
+      crecimientoAnual 12 `shouldBe` 4
+    
+    it "crecimientoEntreEdades/2" $ do
+      crecimientoEntreEdades 8 12 `shouldBe` 22 
+
+    it "alturasEn1Anio/2" $ do
+      alturasEn1Anio 7 [120,108,89] `shouldBe` [130,118,99]
+
+    it "alturaEnEdades/3" $ do
+      alturaEnEdades 120 8 [12,15,18] `shouldBe` [142,154,164]
+
+    it "rachasLluvias/1" $ do
+      rachasLluvia lluviasEnero `shouldBe` [[2,5,1,34,2],[21],[5,9,18,4]]
+
+    it "mayorRachasDeLluvias/1" $ do
+      mayorRachasDeLluvia lluviasEnero `shouldBe` 5

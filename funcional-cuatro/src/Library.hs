@@ -1,5 +1,3 @@
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-{-# HLINT ignore "Hoist not" #-}
 module Library where
 import PdePreludat
 
@@ -138,8 +136,7 @@ Esta fue mi funcion la de arriba es una funcion que me recomendo haskell, por qu
 
 -- 11
 sumaF :: [Number -> Number] -> Number -> Number
-sumaF funciones numero
-  = sum (foldr (\ funcion -> (:) (funcion numero)) [] funciones)
+sumaF funciones = sum . aplicarFunciones funciones
 
 -- 12
 subirHabilidad :: Number -> [Number] -> [Number]
@@ -150,7 +147,85 @@ subirHabilidad numero (habilidad:habilidades)
 
 -- 13
 flimitada :: (Number -> Number) -> Number -> Number
-flimitada funcion numero
-    | funcion numero >= 12 = 12
-    | funcion numero <= 0 = 0
-    | otherwise = funcion numero
+flimitada funcion = min 12 . max 0 . funcion
+
+-- 13 a
+cambiarHabilidad :: (Number -> Number) -> [Number] -> [Number]
+cambiarHabilidad funcion = map (flimitada funcion)
+
+-- 13 b esta en los tests   ->  cambiarHabilidad (max 4) [2,4,5,3,8] `shouldBe` [4,4,5,4,8] 
+
+-- 14 esta en los tests
+
+-- 15
+primerosPares :: [Number] -> [Number]
+primerosPares = takeWhile even
+
+primerosDivisores :: Number -> [Number] -> [Number]
+primerosDivisores numero = takeWhile (esMultiplo numero)
+
+primerosNoDivisores :: Number -> [Number] -> [Number]
+primerosNoDivisores numero = takeWhile (not . esMultiplo numero)
+
+-- 16
+algunoMayorA :: Number -> [Number] -> Bool
+algunoMayorA numero = any (numero <)
+
+utilidad :: [Number] -> [Number] -> [Number]
+utilidad [] [] = []
+utilidad listaIngresos listaEgresos = head listaIngresos - head listaEgresos : utilidad (tail listaIngresos) (tail listaEgresos)
+
+huboMesMejorDe :: [Number] -> [Number] -> Number -> Bool
+huboMesMejorDe listaIngresos listaEgresos numero = algunoMayorA numero (utilidad listaIngresos listaEgresos)
+
+-- 17 a
+muchosDe :: Number -> [Number]
+muchosDe n = n:muchosDe n
+
+crecimientoEstadisticoAnual :: [Number]
+crecimientoEstadisticoAnual = [22,20..4] ++ [4,4,4,4,4,4,2,2,1,1] ++ muchosDe 0
+
+crecimientoAnual :: Number -> Number
+crecimientoAnual edad = (!!) crecimientoEstadisticoAnual (edad - 1)
+
+-- 17 b
+{-
+crecimientoEntreEdades :: Number -> Number -> Number
+crecimientoEntreEdades edadInferior edadSuperior
+    | edadInferior == edadSuperior = 0
+    | otherwise = crecimientoAnual edadInferior + crecimientoEntreEdades (edadInferior + 1) edadSuperior
+-}
+
+crecimientoEntreEdades :: Number -> Number -> Number
+crecimientoEntreEdades edadInferior edadSuperior = (sum . take ((-) edadSuperior edadInferior) . drop ((-) edadInferior 1)) crecimientoEstadisticoAnual
+
+-- 17 c
+alturasEn1Anio :: Number -> [Number] -> [Number]
+alturasEn1Anio edad = map (+ crecimientoAnual edad)
+
+-- 17 d
+alturaEnEdades :: Number -> Number -> [Number] -> [Number]
+alturaEnEdades altura edad = map ((+ altura) . crecimientoEntreEdades edad)
+
+-- 18
+lluviasEnero :: [Number]
+lluviasEnero = [0,2,5,1,34,2,0,21,0,0,0,5,9,18,4,0]
+
+rachasLluvia :: [Number] -> [[Number]]
+rachasLluvia [] = []
+rachasLluvia listaLluvias
+    |   ((> 0) . head) listaLluvias = takeWhile (> 0) listaLluvias : (rachasLluvia . dropWhile (> 0)) listaLluvias
+    | otherwise = (rachasLluvia . dropWhile (== 0)) listaLluvias
+
+mayorRachasDeLluvia :: [Number] -> Number
+mayorRachasDeLluvia = maximum . map length . rachasLluvia
+
+-- 19   sumatoria = foldl1 (+)
+sumatoria :: [Number] -> Number
+sumatoria = foldr1 (+)
+
+-- 20   productoria = foldl1 (*)
+productoria :: [Number] -> Number
+productoria = foldr1 (*)
+
+-- 21 PREGUNTAR QUE ES DISPERSION
