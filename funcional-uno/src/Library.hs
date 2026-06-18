@@ -59,8 +59,7 @@ diasNormales medicion1 medicion2 medicion3 = not (diasParejos medicion1 medicion
 
 -- 11
 pesoPino :: Number -> Number
-pesoPino altura | altura < 300   = altura * 3
-                | otherwise      = altura * 2
+pesoPino altura = (min (altura * 100) 300) * 3 + (max 0 (altura * 100 - 300)) * 2
 
 esPesoUtil :: Number -> Bool
 esPesoUtil peso = peso < 1000 && peso > 400

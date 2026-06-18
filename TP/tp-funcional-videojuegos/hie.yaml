@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "tp-funcional-videojuegos:lib"
+
+    - path: "./test"
+      component: "tp-funcional-videojuegos:test:tp-funcional-videojuegos-test"

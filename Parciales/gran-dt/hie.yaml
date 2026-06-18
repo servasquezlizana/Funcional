@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "gran-dt:lib"
+
+    - path: "./test"
+      component: "gran-dt:test:gran-dt-test"
